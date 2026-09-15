@@ -1,0 +1,3 @@
+{
+  "args": "--use-gl=angle,--use-angle=swiftshader,--enable-unsafe-swiftshader,--disable-gpu-sandbox,--ignore-gpu-blocklist"
+}
