@@ -1,0 +1,2971 @@
+[
+  {
+    "id": "L01",
+    "solutionType": "single",
+    "sources": {
+      "lamp": [
+        "left",
+        "right"
+      ],
+      "shutter": [
+        "open",
+        "closed"
+      ]
+    },
+    "derived": {
+      "shadow": [
+        "left",
+        "right",
+        "none"
+      ],
+      "leftSeat": [
+        "lit",
+        "shaded"
+      ],
+      "rightSeat": [
+        "lit",
+        "shaded"
+      ],
+      "moth": [
+        "resting",
+        "moving"
+      ]
+    },
+    "initial": {
+      "lamp": "right",
+      "shutter": "open"
+    },
+    "canonical": {
+      "lamp": "left",
+      "shutter": "open"
+    },
+    "rules": {
+      "shadow": "choose(shutter == 'closed', 'none', choose(lamp == 'left', 'right', 'left'))",
+      "leftSeat": "choose(shadow == 'left', 'shaded', 'lit')",
+      "rightSeat": "choose(shadow == 'right', 'shaded', 'lit')",
+      "moth": "choose(rightSeat == 'shaded', 'resting', 'moving')"
+    },
+    "target": "shadow == 'right' and rightSeat == 'shaded' and moth == 'resting'",
+    "solutions": [
+      {
+        "source": "lamp",
+        "value": "left"
+      }
+    ],
+    "title": "A Shadow in the Wrong Seat",
+    "titleRu": "Тень не на своём месте",
+    "curator": {
+      "en": "The moth reserved the seat on the right.",
+      "ru": "Мотылёк забронировал место справа."
+    },
+    "objects": {
+      "lamp": {
+        "en": "Lamp",
+        "ru": "Лампа"
+      },
+      "shutter": {
+        "en": "Shutter",
+        "ru": "Заслонка"
+      },
+      "shadow": {
+        "en": "Shadow",
+        "ru": "Тень"
+      },
+      "leftSeat": {
+        "en": "Left seat",
+        "ru": "Левое сиденье"
+      },
+      "rightSeat": {
+        "en": "Right seat",
+        "ru": "Правое сиденье"
+      },
+      "moth": {
+        "en": "Paper moth",
+        "ru": "Бумажный мотылёк"
+      }
+    },
+    "art": "a brass lamp on a horizontal two-position mount, an obvious open/closed shutter, two broad paper seats and one moth on a short articulated stalk. The modeled shadow is a large clean shape, not a tiny tonal patch. Keep the teaching focus on lamp and shadow; the two seats remain distinct.",
+    "ruleCards": [
+      {
+        "en": "An open shutter lets the lamp cast a shadow on the opposite side. A closed shutter produces no shadow.",
+        "ru": "Открытая заслонка позволяет лампе отбрасывать тень на противоположную сторону. При закрытой заслонке тени нет."
+      },
+      {
+        "en": "The left seat is shaded only by a leftward shadow; otherwise its display is lit.",
+        "ru": "Левое сиденье находится в тени только при тени слева; иначе его подсветка включена."
+      },
+      {
+        "en": "The right seat is shaded only by a rightward shadow; otherwise its display is lit.",
+        "ru": "Правое сиденье находится в тени только при тени справа; иначе его подсветка включена."
+      },
+      {
+        "en": "The paper moth rests when the right seat is shaded; otherwise it moves.",
+        "ru": "Бумажный мотылёк замирает, когда правое сиденье в тени; иначе он движется."
+      }
+    ],
+    "targetText": "Shadow right; right seat shaded; moth resting.",
+    "targetTextRu": "Тень справа; правое сиденье в тени; мотылёк неподвижен.",
+    "hints": [
+      {
+        "en": "Follow the lamp, shadow and right seat.",
+        "ru": "Проследите связь лампы, тени и правого сиденья."
+      },
+      {
+        "en": "The shadow falls opposite the lamp when the shutter is open.",
+        "ru": "При открытой заслонке тень находится с противоположной от лампы стороны."
+      },
+      {
+        "en": "Consider changing the lamp's side.",
+        "ru": "Попробуйте изменить сторону лампы."
+      }
+    ],
+    "recap": "Lamp left → shadow right → right seat shaded → moth rests. Closing the shutter removes the shadow rather than moving it.",
+    "recapRu": "Лампа слева → тень справа → правое сиденье в тени → мотылёк замирает. Закрытая заслонка убирает тень, а не перемещает её."
+  },
+  {
+    "id": "L02",
+    "solutionType": "single",
+    "sources": {
+      "lamp": [
+        "low",
+        "high"
+      ],
+      "lens": [
+        "round",
+        "leaf"
+      ]
+    },
+    "derived": {
+      "shape": [
+        "disk",
+        "leaf"
+      ],
+      "spread": [
+        "wide",
+        "small"
+      ],
+      "postcard": [
+        "finished",
+        "unfinished"
+      ],
+      "envelope": [
+        "sealed",
+        "open"
+      ]
+    },
+    "initial": {
+      "lamp": "low",
+      "lens": "round"
+    },
+    "canonical": {
+      "lamp": "low",
+      "lens": "leaf"
+    },
+    "rules": {
+      "shape": "choose(lens == 'leaf', 'leaf', 'disk')",
+      "spread": "choose(lamp == 'low', 'wide', 'small')",
+      "postcard": "choose(shape == 'leaf' and spread == 'wide', 'finished', 'unfinished')",
+      "envelope": "choose(postcard == 'finished', 'sealed', 'open')"
+    },
+    "target": "spread == 'wide' and envelope == 'sealed'",
+    "solutions": [
+      {
+        "source": "lens",
+        "value": "leaf"
+      }
+    ],
+    "title": "The Leaf That Would Not Arrive",
+    "titleRu": "Лист, который не приходил",
+    "curator": {
+      "en": "A postcard is waiting for the right kind of autumn.",
+      "ru": "Открытка ждёт подходящую осень."
+    },
+    "objects": {
+      "lamp": {
+        "en": "Lamp height",
+        "ru": "Высота лампы"
+      },
+      "lens": {
+        "en": "Stencil selector",
+        "ru": "Переключатель трафарета"
+      },
+      "shape": {
+        "en": "Shape window",
+        "ru": "Окно формы"
+      },
+      "spread": {
+        "en": "Projection screen",
+        "ru": "Экран проекции"
+      },
+      "postcard": {
+        "en": "Postcard",
+        "ru": "Открытка"
+      },
+      "envelope": {
+        "en": "Envelope",
+        "ru": "Конверт"
+      }
+    },
+    "art": "a miniature printing desk. The shape window displays a disk or leaf; a separate screen shows a broad or narrow projection footprint. A mechanical postcard tray combines those two readings. Do not draw a seventh interactive printing button.",
+    "ruleCards": [
+      {
+        "en": "The round stencil makes a disk; the leaf stencil makes a leaf.",
+        "ru": "Круглый трафарет создаёт круг, трафарет листа — лист."
+      },
+      {
+        "en": "In this model a low lamp makes a wide projection; a high lamp makes a small one.",
+        "ru": "В этой модели низкая лампа даёт широкую проекцию, высокая — маленькую."
+      },
+      {
+        "en": "The postcard finishes only with a leaf shape and a wide projection.",
+        "ru": "Открытка готова только при форме листа и широкой проекции."
+      },
+      {
+        "en": "A finished postcard seals the envelope; otherwise it stays open.",
+        "ru": "Готовая открытка закрывает конверт; иначе он остаётся открытым."
+      }
+    ],
+    "targetText": "Wide projection and sealed envelope.",
+    "targetTextRu": "Широкая проекция и закрытый конверт.",
+    "hints": [
+      {
+        "en": "Compare the shape window with the postcard.",
+        "ru": "Сопоставьте окно формы и открытку."
+      },
+      {
+        "en": "The postcard needs both the leaf and the wide projection.",
+        "ru": "Открытке нужны и лист, и широкая проекция."
+      },
+      {
+        "en": "The stencil selector controls the missing ingredient.",
+        "ru": "Недостающее условие зависит от переключателя трафарета."
+      }
+    ],
+    "recap": "Leaf stencil → leaf shape; the already-low lamp keeps the projection wide → postcard finished → envelope sealed.",
+    "recapRu": "Трафарет листа → форма листа; уже опущенная лампа сохраняет широкую проекцию → открытка готова → конверт закрыт."
+  },
+  {
+    "id": "L03",
+    "solutionType": "single",
+    "sources": {
+      "power": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "diffuser": [
+        "clear",
+        "frosted"
+      ]
+    },
+    "derived": {
+      "beam": [
+        "dim",
+        "even",
+        "glare"
+      ],
+      "window": [
+        "sharp",
+        "soft"
+      ],
+      "gull": [
+        "awake",
+        "squinting"
+      ],
+      "flag": [
+        "welcome",
+        "wait"
+      ]
+    },
+    "initial": {
+      "power": "high",
+      "diffuser": "frosted"
+    },
+    "canonical": {
+      "power": "medium",
+      "diffuser": "frosted"
+    },
+    "rules": {
+      "beam": "choose(power == 'low', 'dim', choose(power == 'medium', 'even', 'glare'))",
+      "window": "choose(diffuser == 'frosted', 'soft', 'sharp')",
+      "gull": "choose(beam != 'glare' and window == 'soft', 'awake', 'squinting')",
+      "flag": "choose(beam == 'even' and gull == 'awake', 'welcome', 'wait')"
+    },
+    "target": "flag == 'welcome'",
+    "solutions": [
+      {
+        "source": "power",
+        "value": "medium"
+      }
+    ],
+    "title": "The Lighthouse's Indoor Voice",
+    "titleRu": "Тихий голос маяка",
+    "curator": {
+      "en": "This lighthouse has been asked to use its indoor voice.",
+      "ru": "Этот маяк попросили вести себя потише."
+    },
+    "objects": {
+      "power": {
+        "en": "Power dial",
+        "ru": "Регулятор мощности"
+      },
+      "diffuser": {
+        "en": "Glass selector",
+        "ru": "Переключатель стекла"
+      },
+      "beam": {
+        "en": "Beam panel",
+        "ru": "Панель луча"
+      },
+      "window": {
+        "en": "Window",
+        "ru": "Окно"
+      },
+      "gull": {
+        "en": "Mechanical gull",
+        "ru": "Механическая чайка"
+      },
+      "flag": {
+        "en": "Keeper's flag",
+        "ru": "Флажок смотрителя"
+      }
+    },
+    "art": "a small indoor lighthouse, frosted insert and an articulated gull with clearly open or squinting eyes. Beam intensity is also represented by one/two/three patterned bars, not brightness alone. The flag has two distinct poses with live labels.",
+    "ruleCards": [
+      {
+        "en": "Low, medium and high power make a dim, even and glaring beam respectively.",
+        "ru": "Низкая, средняя и высокая мощность дают тусклый, ровный и слепящий луч соответственно."
+      },
+      {
+        "en": "Frosted glass makes a soft window; clear glass makes a sharp-edged one.",
+        "ru": "Матовое стекло смягчает свет в окне; прозрачное оставляет резкие границы."
+      },
+      {
+        "en": "The gull opens its eyes only when the window is soft and the beam is not glaring.",
+        "ru": "Чайка открывает глаза только при мягком свете в окне и отсутствии слепящего луча."
+      },
+      {
+        "en": "The flag welcomes visitors only with an even beam and an open-eyed gull.",
+        "ru": "Флажок приветствует посетителей только при ровном луче и открытых глазах чайки."
+      }
+    ],
+    "targetText": "The keeper's flag welcomes visitors.",
+    "targetTextRu": "Флажок смотрителя приветствует посетителей.",
+    "hints": [
+      {
+        "en": "Read the beam, gull and flag together.",
+        "ru": "Рассмотрите связь луча, чайки и флажка."
+      },
+      {
+        "en": "Removing glare is not enough: the flag specifically needs an even beam.",
+        "ru": "Убрать слепящий свет недостаточно: флажку нужен именно ровный луч."
+      },
+      {
+        "en": "Try a different power setting.",
+        "ru": "Попробуйте другое значение мощности."
+      }
+    ],
+    "recap": "Medium power makes the beam even. The frosted window already softens it, so the gull opens its eyes and the flag welcomes visitors. Low power would wake the gull but leave the flag waiting.",
+    "recapRu": "Средняя мощность делает луч ровным. Матовое окно уже смягчает свет, поэтому чайка открывает глаза, а флажок приветствует посетителей. Низкая мощность разбудила бы чайку, но флажок остался бы в ожидании."
+  },
+  {
+    "id": "L04",
+    "solutionType": "open",
+    "sources": {
+      "leftLamp": [
+        "off",
+        "on"
+      ],
+      "rightLamp": [
+        "off",
+        "on"
+      ]
+    },
+    "derived": {
+      "leftSpot": [
+        "dark",
+        "lit"
+      ],
+      "rightSpot": [
+        "dark",
+        "lit"
+      ],
+      "medallion": [
+        "none",
+        "one",
+        "two"
+      ],
+      "flower": [
+        "closed",
+        "open"
+      ]
+    },
+    "initial": {
+      "leftLamp": "off",
+      "rightLamp": "off"
+    },
+    "canonical": {
+      "leftLamp": "on",
+      "rightLamp": "off"
+    },
+    "rules": {
+      "leftSpot": "choose(leftLamp == 'on', 'lit', 'dark')",
+      "rightSpot": "choose(rightLamp == 'on', 'lit', 'dark')",
+      "medallion": "choose(leftSpot == 'lit' and rightSpot == 'lit', 'two', choose(leftSpot == 'lit' or rightSpot == 'lit', 'one', 'none'))",
+      "flower": "choose(medallion == 'one', 'open', 'closed')"
+    },
+    "target": "medallion == 'one' and flower == 'open'",
+    "solutions": [
+      {
+        "source": "leftLamp",
+        "value": "on"
+      },
+      {
+        "source": "rightLamp",
+        "value": "on"
+      }
+    ],
+    "title": "One Pool of Gold",
+    "titleRu": "Одно золотое пятно",
+    "curator": {
+      "en": "The flower asked for one sun, not a committee.",
+      "ru": "Цветок просил одно солнце, а не целый совет."
+    },
+    "objects": {
+      "leftLamp": {
+        "en": "Left lamp",
+        "ru": "Левая лампа"
+      },
+      "rightLamp": {
+        "en": "Right lamp",
+        "ru": "Правая лампа"
+      },
+      "leftSpot": {
+        "en": "Left light patch",
+        "ru": "Левое световое пятно"
+      },
+      "rightSpot": {
+        "en": "Right light patch",
+        "ru": "Правое световое пятно"
+      },
+      "medallion": {
+        "en": "Counting medallion",
+        "ru": "Счётный медальон"
+      },
+      "flower": {
+        "en": "Paper flower",
+        "ru": "Бумажный цветок"
+      }
+    },
+    "art": "symmetrical lamps but asymmetrically distinctive housings so selection is clear; two large light patches feed a central medallion with zero/one/two embossed marks. The flower is visibly open or closed. Do not decorate the intended route more richly than the alternative.",
+    "ruleCards": [
+      {
+        "en": "The left lamp lights only the left patch.",
+        "ru": "Левая лампа освещает только левое пятно."
+      },
+      {
+        "en": "The right lamp lights only the right patch.",
+        "ru": "Правая лампа освещает только правое пятно."
+      },
+      {
+        "en": "The medallion counts the lit patches: none, one or two.",
+        "ru": "Медальон считает освещённые пятна: ни одного, одно или два."
+      },
+      {
+        "en": "The flower opens only when exactly one patch is lit.",
+        "ru": "Цветок раскрывается, только когда освещено ровно одно пятно."
+      }
+    ],
+    "targetText": "Medallion shows one; flower open.",
+    "targetTextRu": "Медальон показывает одно пятно; цветок раскрыт.",
+    "hints": [
+      {
+        "en": "Both lamps feed the medallion through their own patches.",
+        "ru": "Обе лампы связаны с медальоном через свои пятна."
+      },
+      {
+        "en": "Exactly one lit patch is enough, whichever side it is on.",
+        "ru": "Достаточно ровно одного освещённого пятна с любой стороны."
+      },
+      {
+        "en": "Either lamp can be the control you change.",
+        "ru": "Изменить можно любую из двух ламп."
+      }
+    ],
+    "recap": "Turning on either lamp creates exactly one lit patch and opens the flower. Both repairs are equally correct.",
+    "recapRu": "Включение любой лампы создаёт ровно одно световое пятно и раскрывает цветок. Оба исправления одинаково верны."
+  },
+  {
+    "id": "L05",
+    "solutionType": "single",
+    "sources": {
+      "lamp": [
+        "left",
+        "right"
+      ],
+      "mirror": [
+        "straight",
+        "crossed"
+      ]
+    },
+    "derived": {
+      "entry": [
+        "left",
+        "right"
+      ],
+      "exit": [
+        "left",
+        "right"
+      ],
+      "moon": [
+        "lit",
+        "dark"
+      ],
+      "sun": [
+        "lit",
+        "dark"
+      ]
+    },
+    "initial": {
+      "lamp": "left",
+      "mirror": "straight"
+    },
+    "canonical": {
+      "lamp": "left",
+      "mirror": "crossed"
+    },
+    "rules": {
+      "entry": "lamp",
+      "exit": "choose(mirror == 'straight', entry, choose(entry == 'left', 'right', 'left'))",
+      "moon": "choose(exit == 'right', 'lit', 'dark')",
+      "sun": "choose(exit == 'left', 'lit', 'dark')"
+    },
+    "target": "entry == 'left' and moon == 'lit' and sun == 'dark'",
+    "solutions": [
+      {
+        "source": "mirror",
+        "value": "crossed"
+      }
+    ],
+    "title": "Moon for a Matinee",
+    "titleRu": "Луна для дневного спектакля",
+    "curator": {
+      "en": "The moon is ready. Its entrance is not.",
+      "ru": "Луна готова. Её выход — пока нет."
+    },
+    "objects": {
+      "lamp": {
+        "en": "Lamp selector",
+        "ru": "Переключатель лампы"
+      },
+      "mirror": {
+        "en": "Mirror routing lever",
+        "ru": "Рычаг маршрута зеркала"
+      },
+      "entry": {
+        "en": "Entrance beam window",
+        "ru": "Входное окно луча"
+      },
+      "exit": {
+        "en": "Exit beam window",
+        "ru": "Выходное окно луча"
+      },
+      "moon": {
+        "en": "Moon disc",
+        "ru": "Диск луны"
+      },
+      "sun": {
+        "en": "Sun disc",
+        "ru": "Диск солнца"
+      }
+    },
+    "art": "a tiny theatre with two broad labeled beam windows and a mechanical mirror selector. “Straight” and “Crossed” are toy routing modes, not a claim about arbitrary real mirror angles. The moon and sun occupy separate, fixed sides.",
+    "ruleCards": [
+      {
+        "en": "The lamp setting determines the entrance beam side.",
+        "ru": "Положение лампы определяет сторону входного луча."
+      },
+      {
+        "en": "Straight routing keeps the beam side; crossed routing swaps left and right.",
+        "ru": "Прямой маршрут сохраняет сторону луча; перекрёстный меняет левую и правую стороны местами."
+      },
+      {
+        "en": "A right exit beam lights the moon; a left exit beam leaves it dark.",
+        "ru": "Выходной луч справа освещает луну; луч слева оставляет её тёмной."
+      },
+      {
+        "en": "A left exit beam lights the sun; a right exit beam leaves it dark.",
+        "ru": "Выходной луч слева освещает солнце; луч справа оставляет его тёмным."
+      }
+    ],
+    "targetText": "Entrance beam left, moon lit, sun dark.",
+    "targetTextRu": "Входной луч слева, луна освещена, солнце тёмное.",
+    "hints": [
+      {
+        "en": "The entrance and exit do not have to use the same side.",
+        "ru": "Вход и выход не обязаны находиться с одной стороны."
+      },
+      {
+        "en": "Preserve the required entrance while changing the exit.",
+        "ru": "Сохраните нужный вход и измените выход."
+      },
+      {
+        "en": "Inspect the mirror routing lever.",
+        "ru": "Проверьте рычаг маршрута зеркала."
+      }
+    ],
+    "recap": "Crossed routing keeps the left entrance and sends the exit right. Moving the lamp also lights the moon, but violates the required left entrance.",
+    "recapRu": "Перекрёстный маршрут сохраняет вход слева и направляет выход вправо. Перестановка лампы тоже освещает луну, но нарушает требование входа слева."
+  },
+  {
+    "id": "L06",
+    "solutionType": "single",
+    "sources": {
+      "filter": [
+        "amber",
+        "blue"
+      ],
+      "blind": [
+        "open",
+        "closed"
+      ]
+    },
+    "derived": {
+      "window": [
+        "circle",
+        "triangle"
+      ],
+      "plant": [
+        "awake",
+        "asleep"
+      ],
+      "floor": [
+        "striped",
+        "plain"
+      ],
+      "camera": [
+        "ready",
+        "waiting"
+      ]
+    },
+    "initial": {
+      "filter": "blue",
+      "blind": "open"
+    },
+    "canonical": {
+      "filter": "amber",
+      "blind": "open"
+    },
+    "rules": {
+      "window": "choose(filter == 'amber', 'circle', 'triangle')",
+      "plant": "choose(window == 'circle' and blind == 'open', 'awake', 'asleep')",
+      "floor": "choose(blind == 'open', 'striped', 'plain')",
+      "camera": "choose(plant == 'awake' and floor == 'striped', 'ready', 'waiting')"
+    },
+    "target": "window == 'circle' and camera == 'ready'",
+    "solutions": [
+      {
+        "source": "filter",
+        "value": "amber"
+      }
+    ],
+    "title": "The Window with Two Opinions",
+    "titleRu": "Окно с двумя мнениями",
+    "curator": {
+      "en": "The plant would like a portrait, not a night photograph.",
+      "ru": "Растение просит портрет, а не ночной снимок."
+    },
+    "objects": {
+      "filter": {
+        "en": "Filter wheel",
+        "ru": "Колесо фильтров"
+      },
+      "blind": {
+        "en": "Blind control",
+        "ru": "Управление жалюзи"
+      },
+      "window": {
+        "en": "Pattern window",
+        "ru": "Окно узора"
+      },
+      "plant": {
+        "en": "Paper plant",
+        "ru": "Бумажное растение"
+      },
+      "floor": {
+        "en": "Floor panel",
+        "ru": "Панель пола"
+      },
+      "camera": {
+        "en": "Camera",
+        "ru": "Фотоаппарат"
+      }
+    },
+    "art": "amber-circle and blue-triangle filter inserts with both shape and color readable. A paper plant opens its leaves through a visible toy linkage; a floor panel displays large stripes or a plain surface; the camera has a distinct ready flag. No reliance on real plant growth or real color perception.",
+    "ruleCards": [
+      {
+        "en": "The amber filter has a circle; the blue filter has a triangle. The window repeats that shape.",
+        "ru": "На янтарном фильтре круг, на синем — треугольник. Окно повторяет эту форму."
+      },
+      {
+        "en": "The paper plant wakes only with a circle and an open blind.",
+        "ru": "Бумажное растение просыпается только при круге и открытых жалюзи."
+      },
+      {
+        "en": "Open blinds make the floor striped; closed blinds leave it plain.",
+        "ru": "Открытые жалюзи создают полосы на полу; закрытые оставляют пол без узора."
+      },
+      {
+        "en": "The camera is ready only with an awake plant and a striped floor.",
+        "ru": "Фотоаппарат готов только при бодрствующем растении и полосатом полу."
+      }
+    ],
+    "targetText": "Circle in the window and camera ready.",
+    "targetTextRu": "В окне круг; фотоаппарат готов.",
+    "hints": [
+      {
+        "en": "Compare the window, plant and camera.",
+        "ru": "Сопоставьте окно, растение и фотоаппарат."
+      },
+      {
+        "en": "The floor already has the pattern the camera needs.",
+        "ru": "На полу уже есть нужный фотоаппарату узор."
+      },
+      {
+        "en": "Consider the filter wheel.",
+        "ru": "Обратите внимание на колесо фильтров."
+      }
+    ],
+    "recap": "Amber-circle filter → circle window → awake plant. The open blind preserves the stripes, so the camera becomes ready.",
+    "recapRu": "Янтарный фильтр с кругом → круг в окне → растение просыпается. Открытые жалюзи сохраняют полосы, и фотоаппарат готов."
+  },
+  {
+    "id": "L07",
+    "solutionType": "single",
+    "sources": {
+      "iris": [
+        "wide",
+        "narrow"
+      ],
+      "focus": [
+        "near",
+        "far"
+      ]
+    },
+    "derived": {
+      "star": [
+        "sharp",
+        "soft"
+      ],
+      "meter": [
+        "high",
+        "low"
+      ],
+      "drum": [
+        "active",
+        "quiet"
+      ],
+      "owl": [
+        "settled",
+        "alert"
+      ]
+    },
+    "initial": {
+      "iris": "wide",
+      "focus": "near"
+    },
+    "canonical": {
+      "iris": "narrow",
+      "focus": "near"
+    },
+    "rules": {
+      "star": "choose(focus == 'near', 'sharp', 'soft')",
+      "meter": "choose(iris == 'wide', 'high', 'low')",
+      "drum": "choose(meter == 'high', 'active', 'quiet')",
+      "owl": "choose(star == 'sharp' and drum == 'quiet', 'settled', 'alert')"
+    },
+    "target": "star == 'sharp' and owl == 'settled'",
+    "solutions": [
+      {
+        "source": "iris",
+        "value": "narrow"
+      }
+    ],
+    "title": "The Star Needs an Edge",
+    "titleRu": "Звезде нужны чёткие края",
+    "curator": {
+      "en": "The owl approves of stars, but not of unnecessary brightness.",
+      "ru": "Сова одобряет звёзды, но не лишний свет."
+    },
+    "objects": {
+      "iris": {
+        "en": "Aperture lever",
+        "ru": "Рычаг диафрагмы"
+      },
+      "focus": {
+        "en": "Focus selector",
+        "ru": "Переключатель фокуса"
+      },
+      "star": {
+        "en": "Star silhouette",
+        "ru": "Силуэт звезды"
+      },
+      "meter": {
+        "en": "Spill meter",
+        "ru": "Измеритель засветки"
+      },
+      "drum": {
+        "en": "Sensor drum",
+        "ru": "Барабан датчика"
+      },
+      "owl": {
+        "en": "Paper owl",
+        "ru": "Бумажная сова"
+      }
+    },
+    "art": "an observatory desk with a physically bounded star silhouette, not blurry UI text. The meter uses large one/three-mark readings; a photocell-linked toy drum rotates only when active. The owl's eyes provide the final static state.",
+    "ruleCards": [
+      {
+        "en": "Near focus gives the star a sharp edge; far focus gives a soft edge.",
+        "ru": "Ближний фокус даёт звезде чёткие края, дальний — мягкие."
+      },
+      {
+        "en": "A wide aperture gives high spill; a narrow aperture gives low spill.",
+        "ru": "Широкая диафрагма даёт высокую засветку, узкая — низкую."
+      },
+      {
+        "en": "High spill activates the sensor drum; low spill keeps it quiet.",
+        "ru": "Высокая засветка включает барабан датчика, низкая оставляет его неподвижным."
+      },
+      {
+        "en": "The owl settles only with a sharp star and a quiet drum.",
+        "ru": "Сова успокаивается только при чёткой звезде и неподвижном барабане."
+      }
+    ],
+    "targetText": "Sharp star and settled owl.",
+    "targetTextRu": "Чёткая звезда и спокойная сова.",
+    "hints": [
+      {
+        "en": "The owl reads both the star and the drum.",
+        "ru": "Сова зависит и от звезды, и от барабана."
+      },
+      {
+        "en": "The drum follows spill, not focus.",
+        "ru": "Барабан зависит от засветки, а не от фокуса."
+      },
+      {
+        "en": "Inspect the aperture lever.",
+        "ru": "Проверьте рычаг диафрагмы."
+      }
+    ],
+    "recap": "Narrow aperture → low spill → quiet drum. Near focus already keeps the star sharp, so the owl settles.",
+    "recapRu": "Узкая диафрагма → низкая засветка → неподвижный барабан. Ближний фокус уже сохраняет чёткость звезды, поэтому сова успокаивается."
+  },
+  {
+    "id": "L08",
+    "solutionType": "single",
+    "sources": {
+      "mode": [
+        "day",
+        "dusk",
+        "night"
+      ],
+      "skylight": [
+        "open",
+        "closed"
+      ]
+    },
+    "derived": {
+      "dome": [
+        "white",
+        "gold",
+        "blue"
+      ],
+      "clock": [
+        "noon",
+        "six",
+        "midnight"
+      ],
+      "ticket": [
+        "readable",
+        "unreadable"
+      ],
+      "bird": [
+        "perched",
+        "waiting"
+      ]
+    },
+    "initial": {
+      "mode": "day",
+      "skylight": "open"
+    },
+    "canonical": {
+      "mode": "dusk",
+      "skylight": "open"
+    },
+    "rules": {
+      "dome": "choose(mode == 'day', 'white', choose(mode == 'dusk', 'gold', 'blue'))",
+      "clock": "choose(mode == 'day', 'noon', choose(mode == 'dusk', 'six', 'midnight'))",
+      "ticket": "choose(skylight == 'open' or dome != 'blue', 'readable', 'unreadable')",
+      "bird": "choose(clock == 'six' and dome == 'gold' and ticket == 'readable', 'perched', 'waiting')"
+    },
+    "target": "ticket == 'readable' and bird == 'perched'",
+    "solutions": [
+      {
+        "source": "mode",
+        "value": "dusk"
+      }
+    ],
+    "title": "Closing Time for the Sun",
+    "titleRu": "Солнцу пора закрываться",
+    "curator": {
+      "en": "The last visitor prefers the hour between bright and dark.",
+      "ru": "Последний посетитель предпочитает час между светом и темнотой."
+    },
+    "objects": {
+      "mode": {
+        "en": "Sky-mode dial",
+        "ru": "Регулятор режима неба"
+      },
+      "skylight": {
+        "en": "Skylight latch",
+        "ru": "Защёлка светового люка"
+      },
+      "dome": {
+        "en": "Sky dome",
+        "ru": "Небесный купол"
+      },
+      "clock": {
+        "en": "Clock face",
+        "ru": "Циферблат"
+      },
+      "ticket": {
+        "en": "Reading ticket",
+        "ru": "Билет для чтения"
+      },
+      "bird": {
+        "en": "Evening bird",
+        "ru": "Вечерняя птица"
+      }
+    },
+    "art": "a mechanical planetarium whose sky-mode dial visibly drives both dome and clock. No real-time clock. Day/dusk/night have distinct sun/horizon/star motifs, not hue alone. The ticket has a live text label, not generated lettering.",
+    "ruleCards": [
+      {
+        "en": "Day makes a white sun dome; dusk a gold horizon dome; night a blue star dome.",
+        "ru": "День создаёт белый купол с солнцем, сумерки — золотой с горизонтом, ночь — синий со звёздами."
+      },
+      {
+        "en": "The same mode sets the toy clock to noon, six or midnight respectively.",
+        "ru": "Тот же режим ставит игрушечные часы на полдень, шесть или полночь соответственно."
+      },
+      {
+        "en": "The ticket is readable if the skylight is open or the dome is not blue.",
+        "ru": "Билет читается, если люк открыт или купол не синий."
+      },
+      {
+        "en": "The bird perches only at six, with a gold dome and a readable ticket.",
+        "ru": "Птица садится только в шесть, при золотом куполе и читаемом билете."
+      }
+    ],
+    "targetText": "Readable ticket and perched bird.",
+    "targetTextRu": "Читаемый билет и сидящая птица.",
+    "hints": [
+      {
+        "en": "Follow the dome and clock to the bird.",
+        "ru": "Проследите связи купола и часов с птицей."
+      },
+      {
+        "en": "One preset changes both the sky and the toy clock.",
+        "ru": "Один режим меняет и небо, и игрушечные часы."
+      },
+      {
+        "en": "Consider the sky-mode dial.",
+        "ru": "Обратите внимание на регулятор режима неба."
+      }
+    ],
+    "recap": "Dusk sets the gold horizon and six o'clock. The ticket remains readable, so the bird takes its place.",
+    "recapRu": "Сумерки создают золотой горизонт и ставят часы на шесть. Билет остаётся читаемым, и птица занимает своё место."
+  },
+  {
+    "id": "A01",
+    "solutionType": "single",
+    "sources": {
+      "fan": [
+        "left",
+        "right",
+        "off"
+      ],
+      "vent": [
+        "open",
+        "closed"
+      ]
+    },
+    "derived": {
+      "wind": [
+        "left",
+        "right",
+        "still"
+      ],
+      "flag": [
+        "left",
+        "right",
+        "hanging"
+      ],
+      "wheel": [
+        "turning",
+        "stopped"
+      ],
+      "boat": [
+        "docked",
+        "away"
+      ]
+    },
+    "initial": {
+      "fan": "left",
+      "vent": "open"
+    },
+    "canonical": {
+      "fan": "right",
+      "vent": "open"
+    },
+    "rules": {
+      "wind": "choose(vent == 'closed' or fan == 'off', 'still', fan)",
+      "flag": "choose(wind == 'still', 'hanging', wind)",
+      "wheel": "choose(wind == 'right', 'turning', 'stopped')",
+      "boat": "choose(wheel == 'turning', 'docked', 'away')"
+    },
+    "target": "flag == 'right' and boat == 'docked'",
+    "solutions": [
+      {
+        "source": "fan",
+        "value": "right"
+      }
+    ],
+    "title": "A Flag with Other Plans",
+    "titleRu": "У флага другие планы",
+    "curator": {
+      "en": "The boat trusts the flag more than the timetable.",
+      "ru": "Лодка доверяет флагу больше, чем расписанию."
+    },
+    "objects": {
+      "fan": {
+        "en": "Fan selector",
+        "ru": "Переключатель вентилятора"
+      },
+      "vent": {
+        "en": "Vent gate",
+        "ru": "Заслонка воздуховода"
+      },
+      "wind": {
+        "en": "Airflow window",
+        "ru": "Окно потока"
+      },
+      "flag": {
+        "en": "Flag",
+        "ru": "Флаг"
+      },
+      "wheel": {
+        "en": "One-way wheel",
+        "ru": "Однонаправленное колесо"
+      },
+      "boat": {
+        "en": "Docking boat",
+        "ru": "Лодка у причала"
+      }
+    },
+    "art": "a harbor under glass, with a large fan selector, broad airflow window and ratchet wheel linked to a boat carriage. Arrows live in the state layer, not as decorative swirls. A stopped fan is visibly stopped.",
+    "ruleCards": [
+      {
+        "en": "An open vent passes the selected fan direction. A closed vent or off fan makes still air.",
+        "ru": "Открытая заслонка пропускает поток в выбранном направлении. Закрытая заслонка или выключенный вентилятор останавливает поток."
+      },
+      {
+        "en": "The flag follows the airflow; in still air it hangs down.",
+        "ru": "Флаг следует потоку; без потока он свисает."
+      },
+      {
+        "en": "This one-way wheel turns only in rightward airflow.",
+        "ru": "Это однонаправленное колесо вращается только при потоке вправо."
+      },
+      {
+        "en": "A turning wheel brings the boat to the dock; otherwise it stays away.",
+        "ru": "Вращающееся колесо подводит лодку к причалу; иначе лодка остаётся вдали."
+      }
+    ],
+    "targetText": "Flag right and boat docked.",
+    "targetTextRu": "Флаг направлен вправо; лодка у причала.",
+    "hints": [
+      {
+        "en": "The flag and boat both depend on the airflow.",
+        "ru": "И флаг, и лодка зависят от потока."
+      },
+      {
+        "en": "The wheel accepts only one direction.",
+        "ru": "Колесо работает только в одном направлении."
+      },
+      {
+        "en": "Consider the fan selector.",
+        "ru": "Обратите внимание на переключатель вентилятора."
+      }
+    ],
+    "recap": "Rightward fan → rightward airflow → rightward flag and turning wheel → boat docked. Stopping the air cannot bring the boat home.",
+    "recapRu": "Вентилятор вправо → поток вправо → флаг вправо и вращение колеса → лодка у причала. Остановка воздуха не возвращает лодку домой."
+  },
+  {
+    "id": "A02",
+    "solutionType": "single",
+    "sources": {
+      "blower": [
+        "off",
+        "low",
+        "high"
+      ],
+      "mute": [
+        "on",
+        "off"
+      ]
+    },
+    "derived": {
+      "stream": [
+        "still",
+        "gentle",
+        "strong"
+      ],
+      "chime": [
+        "ringing",
+        "silent"
+      ],
+      "feather": [
+        "resting",
+        "level",
+        "lifted"
+      ],
+      "listener": [
+        "pleased",
+        "waiting"
+      ]
+    },
+    "initial": {
+      "blower": "low",
+      "mute": "on"
+    },
+    "canonical": {
+      "blower": "low",
+      "mute": "off"
+    },
+    "rules": {
+      "stream": "choose(blower == 'off', 'still', choose(blower == 'low', 'gentle', 'strong'))",
+      "chime": "choose(stream == 'gentle' and mute == 'off', 'ringing', 'silent')",
+      "feather": "choose(stream == 'still', 'resting', choose(stream == 'gentle', 'level', 'lifted'))",
+      "listener": "choose(chime == 'ringing' and feather == 'level', 'pleased', 'waiting')"
+    },
+    "target": "listener == 'pleased'",
+    "solutions": [
+      {
+        "source": "mute",
+        "value": "off"
+      }
+    ],
+    "title": "The Bell That Forgot to Ring",
+    "titleRu": "Колокольчик забыл зазвенеть",
+    "curator": {
+      "en": "The audience arrived. The bell is still considering it.",
+      "ru": "Слушатель уже пришёл. Колокольчик ещё раздумывает."
+    },
+    "objects": {
+      "blower": {
+        "en": "Blower dial",
+        "ru": "Регулятор нагнетателя"
+      },
+      "mute": {
+        "en": "Felt mute",
+        "ru": "Фетровый глушитель"
+      },
+      "stream": {
+        "en": "Stream window",
+        "ru": "Окно струи"
+      },
+      "chime": {
+        "en": "Chime",
+        "ru": "Колокольчик"
+      },
+      "feather": {
+        "en": "Feather balance",
+        "ru": "Балансир с пером"
+      },
+      "listener": {
+        "en": "Paper listener",
+        "ru": "Бумажный слушатель"
+      }
+    },
+    "art": "a small listening station with a plainly visible removable felt clamp. The feather has three unmistakable heights. Ringing is conveyed by the chime striker pose and text, never only by sound.",
+    "ruleCards": [
+      {
+        "en": "Off, low and high blower settings produce still, gentle and strong air.",
+        "ru": "Выключенный, слабый и сильный режимы дают отсутствие потока, мягкий и сильный поток."
+      },
+      {
+        "en": "The chime rings only in gentle air with the mute off; strong air holds the striker aside.",
+        "ru": "Колокольчик звенит только при мягком потоке и снятом глушителе; сильный поток отводит язычок в сторону."
+      },
+      {
+        "en": "Still air leaves the feather resting, gentle air holds it level, strong air lifts it.",
+        "ru": "Без потока перо лежит, мягкий поток держит его горизонтально, сильный поднимает."
+      },
+      {
+        "en": "The listener is pleased only with a ringing chime and a level feather.",
+        "ru": "Слушатель доволен только при звенящем колокольчике и горизонтальном пере."
+      }
+    ],
+    "targetText": "Listener pleased.",
+    "targetTextRu": "Слушатель доволен.",
+    "hints": [
+      {
+        "en": "Compare the feather and the chime.",
+        "ru": "Сопоставьте перо и колокольчик."
+      },
+      {
+        "en": "The feather's level pose comes from gentle air, the same stream the chime receives.",
+        "ru": "Горизонтальное положение пера создаётся мягким потоком — тем же, который получает колокольчик."
+      },
+      {
+        "en": "Inspect the felt mute.",
+        "ru": "Проверьте фетровый глушитель."
+      }
+    ],
+    "recap": "Removing the mute lets the existing gentle air ring the chime while keeping the feather level. More air would not help.",
+    "recapRu": "Снятый глушитель позволяет уже мягкому потоку зазвенеть в колокольчике, сохраняя перо горизонтальным. Усиление потока не поможет."
+  },
+  {
+    "id": "A03",
+    "solutionType": "single",
+    "sources": {
+      "fan": [
+        "off",
+        "on"
+      ],
+      "gate": [
+        "left",
+        "right"
+      ]
+    },
+    "derived": {
+      "windsock": [
+        "empty",
+        "full"
+      ],
+      "fork": [
+        "still",
+        "left",
+        "right"
+      ],
+      "kite": [
+        "grounded",
+        "high"
+      ],
+      "parcel": [
+        "waiting",
+        "delivered"
+      ]
+    },
+    "initial": {
+      "fan": "on",
+      "gate": "left"
+    },
+    "canonical": {
+      "fan": "on",
+      "gate": "right"
+    },
+    "rules": {
+      "windsock": "choose(fan == 'on', 'full', 'empty')",
+      "fork": "choose(windsock == 'full', gate, 'still')",
+      "kite": "choose(fork == 'right', 'high', 'grounded')",
+      "parcel": "choose(fork == 'left', 'delivered', 'waiting')"
+    },
+    "target": "windsock == 'full' and kite == 'high' and parcel == 'waiting'",
+    "solutions": [
+      {
+        "source": "gate",
+        "value": "right"
+      }
+    ],
+    "title": "The Kite's Small Appointment",
+    "titleRu": "Маленькая встреча воздушного змея",
+    "curator": {
+      "en": "The kite has an appointment upstairs.",
+      "ru": "У воздушного змея встреча наверху."
+    },
+    "objects": {
+      "fan": {
+        "en": "Fan switch",
+        "ru": "Выключатель вентилятора"
+      },
+      "gate": {
+        "en": "Fork gate",
+        "ru": "Заслонка развилки"
+      },
+      "windsock": {
+        "en": "Windsock",
+        "ru": "Ветроуказатель"
+      },
+      "fork": {
+        "en": "Route window",
+        "ru": "Окно маршрута"
+      },
+      "kite": {
+        "en": "Kite",
+        "ru": "Воздушный змей"
+      },
+      "parcel": {
+        "en": "Parcel trolley",
+        "ru": "Тележка с посылкой"
+      }
+    },
+    "art": "a clear forked duct, a kite on the right route and parcel rail on the left. The windsock indicates supply before the fork. The target openly requests that the parcel remain waiting; do not imply that every object should be activated.",
+    "ruleCards": [
+      {
+        "en": "An on fan fills the windsock; an off fan leaves it empty.",
+        "ru": "Включённый вентилятор наполняет ветроуказатель; выключенный оставляет его пустым."
+      },
+      {
+        "en": "A full windsock means the selected fork receives air; otherwise both routes are still.",
+        "ru": "При наполненном ветроуказателе воздух идёт по выбранной ветке; иначе потока нет."
+      },
+      {
+        "en": "Only the right route lifts the kite.",
+        "ru": "Только правая ветка поднимает змея."
+      },
+      {
+        "en": "Only the left route delivers the parcel; otherwise it waits.",
+        "ru": "Только левая ветка доставляет посылку; иначе она ждёт."
+      }
+    ],
+    "targetText": "Windsock full, kite high, parcel waiting.",
+    "targetTextRu": "Ветроуказатель наполнен; змей поднят; посылка ждёт.",
+    "hints": [
+      {
+        "en": "Read both destinations of the fork.",
+        "ru": "Рассмотрите оба назначения развилки."
+      },
+      {
+        "en": "The route window feeds both the kite and the parcel; each responds to a different branch.",
+        "ru": "Окно маршрута связано и со змеем, и с посылкой; каждый реагирует на свою ветку."
+      },
+      {
+        "en": "Consider the fork gate.",
+        "ru": "Обратите внимание на заслонку развилки."
+      }
+    ],
+    "recap": "Gate right → the supplied air lifts the kite and leaves the parcel waiting. The fan stays on.",
+    "recapRu": "Заслонка вправо → имеющийся поток поднимает змея и оставляет посылку в ожидании. Вентилятор остаётся включённым."
+  },
+  {
+    "id": "A04",
+    "solutionType": "single",
+    "sources": {
+      "inlet": [
+        "left",
+        "right"
+      ],
+      "deflector": [
+        "straight",
+        "return"
+      ]
+    },
+    "derived": {
+      "ribbon": [
+        "left",
+        "right"
+      ],
+      "draft": [
+        "left",
+        "right"
+      ],
+      "page": [
+        "flat",
+        "fluttering"
+      ],
+      "candle": [
+        "steady",
+        "leaning"
+      ]
+    },
+    "initial": {
+      "inlet": "right",
+      "deflector": "straight"
+    },
+    "canonical": {
+      "inlet": "right",
+      "deflector": "return"
+    },
+    "rules": {
+      "ribbon": "inlet",
+      "draft": "choose(deflector == 'straight', ribbon, choose(ribbon == 'left', 'right', 'left'))",
+      "page": "choose(draft == 'left', 'flat', 'fluttering')",
+      "candle": "choose(page == 'flat', 'steady', 'leaning')"
+    },
+    "target": "ribbon == 'right' and page == 'flat' and candle == 'steady'",
+    "solutions": [
+      {
+        "source": "deflector",
+        "value": "return"
+      }
+    ],
+    "title": "No Draft, Please",
+    "titleRu": "Пожалуйста, без сквозняка",
+    "curator": {
+      "en": "The reader likes fresh air. The page has conditions.",
+      "ru": "Читатель любит свежий воздух. У страницы есть условия."
+    },
+    "objects": {
+      "inlet": {
+        "en": "Inlet selector",
+        "ru": "Переключатель входа"
+      },
+      "deflector": {
+        "en": "Deflector lever",
+        "ru": "Рычаг отражателя"
+      },
+      "ribbon": {
+        "en": "Entrance ribbon",
+        "ru": "Лента у входа"
+      },
+      "draft": {
+        "en": "Desk-flow window",
+        "ru": "Окно потока у стола"
+      },
+      "page": {
+        "en": "Book page",
+        "ru": "Страница книги"
+      },
+      "candle": {
+        "en": "Toy candle",
+        "ru": "Игрушечная свеча"
+      }
+    },
+    "art": "a reading nook with a returning duct and broad ribbon. The candle is an articulated flame-shaped card, explicitly not a real flame. The toy's preferred page direction is a local mechanical convention.",
+    "ruleCards": [
+      {
+        "en": "The entrance ribbon follows the inlet direction.",
+        "ru": "Входная лента следует направлению входа."
+      },
+      {
+        "en": "Straight routing preserves that direction; return routing reverses it at the desk.",
+        "ru": "Прямой маршрут сохраняет направление; возвратный меняет его на противоположное у стола."
+      },
+      {
+        "en": "In this toy, leftward desk air holds the page flat; rightward air makes it flutter.",
+        "ru": "В этой игрушке поток влево прижимает страницу, поток вправо заставляет её колыхаться."
+      },
+      {
+        "en": "The candle linkage is steady with a flat page and leans with a fluttering page.",
+        "ru": "Связанный механизм свечи стоит ровно при прижатой странице и наклоняется при колышущейся."
+      }
+    ],
+    "targetText": "Entrance ribbon right, page flat, candle steady.",
+    "targetTextRu": "Входная лента вправо; страница прижата; свеча стоит ровно.",
+    "hints": [
+      {
+        "en": "Compare air before and after the deflector.",
+        "ru": "Сопоставьте поток до и после отражателя."
+      },
+      {
+        "en": "The deflector maps the entrance ribbon's direction to desk airflow without changing the entrance itself.",
+        "ru": "Отражатель преобразует направление входной ленты в поток у стола, не меняя сам вход."
+      },
+      {
+        "en": "Inspect the deflector lever.",
+        "ru": "Проверьте рычаг отражателя."
+      }
+    ],
+    "recap": "Return routing reverses the air only at the desk. The entrance ribbon stays rightward while the page and candle settle.",
+    "recapRu": "Возвратный маршрут меняет поток только у стола. Входная лента остаётся направленной вправо, а страница и свеча успокаиваются."
+  },
+  {
+    "id": "A05",
+    "solutionType": "open",
+    "sources": {
+      "window": [
+        "closed",
+        "open"
+      ],
+      "fan": [
+        "off",
+        "on"
+      ]
+    },
+    "derived": {
+      "breeze": [
+        "none",
+        "gentle",
+        "strong"
+      ],
+      "pennant": [
+        "hanging",
+        "right",
+        "taut"
+      ],
+      "pinwheel": [
+        "stopped",
+        "turning",
+        "fast"
+      ],
+      "cup": [
+        "calm",
+        "rippling"
+      ]
+    },
+    "initial": {
+      "window": "closed",
+      "fan": "off"
+    },
+    "canonical": {
+      "window": "open",
+      "fan": "off"
+    },
+    "rules": {
+      "breeze": "choose(window == 'open' and fan == 'on', 'strong', choose(window == 'open' or fan == 'on', 'gentle', 'none'))",
+      "pennant": "choose(breeze == 'none', 'hanging', choose(breeze == 'gentle', 'right', 'taut'))",
+      "pinwheel": "choose(breeze == 'none', 'stopped', choose(breeze == 'gentle', 'turning', 'fast'))",
+      "cup": "choose(breeze == 'strong', 'rippling', 'calm')"
+    },
+    "target": "breeze == 'gentle' and pinwheel == 'turning' and cup == 'calm'",
+    "solutions": [
+      {
+        "source": "window",
+        "value": "open"
+      },
+      {
+        "source": "fan",
+        "value": "on"
+      }
+    ],
+    "title": "A Breeze from Either Door",
+    "titleRu": "Ветерок из любой двери",
+    "curator": {
+      "en": "The room needs a breeze, not a weather event.",
+      "ru": "Комнате нужен ветерок, а не погодное явление."
+    },
+    "objects": {
+      "window": {
+        "en": "Window latch",
+        "ru": "Защёлка окна"
+      },
+      "fan": {
+        "en": "Fan switch",
+        "ru": "Выключатель вентилятора"
+      },
+      "breeze": {
+        "en": "Breeze meter",
+        "ru": "Измеритель ветерка"
+      },
+      "pennant": {
+        "en": "Pennant",
+        "ru": "Вымпел"
+      },
+      "pinwheel": {
+        "en": "Pinwheel",
+        "ru": "Вертушка"
+      },
+      "cup": {
+        "en": "Teacup",
+        "ru": "Чашка"
+      }
+    },
+    "art": "window and fan enter the same short manifold. The cup's surface has large smooth/rippled state shapes. Both sources are equally visually inviting; no preferred repair is telegraphed by gold highlighting.",
+    "ruleCards": [
+      {
+        "en": "One active supply makes a gentle breeze; both make strong air; neither makes no breeze.",
+        "ru": "Один источник даёт мягкий ветерок, два — сильный поток, ни одного — отсутствие потока."
+      },
+      {
+        "en": "With no breeze the pennant hangs; gentle air points it right; strong air pulls it taut.",
+        "ru": "Без потока вымпел свисает, мягкий поток направляет его вправо, сильный натягивает."
+      },
+      {
+        "en": "The pinwheel is stopped, turning or fast for no, gentle or strong air respectively.",
+        "ru": "Без потока вертушка неподвижна, при мягком вращается, при сильном вращается быстро."
+      },
+      {
+        "en": "Strong air ripples the cup; otherwise its surface is calm.",
+        "ru": "Сильный поток создаёт рябь в чашке; иначе поверхность спокойна."
+      }
+    ],
+    "targetText": "Gentle breeze, normally turning pinwheel, calm cup.",
+    "targetTextRu": "Мягкий ветерок; обычное вращение вертушки; спокойная поверхность в чашке.",
+    "hints": [
+      {
+        "en": "The window and fan join at the breeze meter.",
+        "ru": "Окно и вентилятор соединяются у измерителя ветерка."
+      },
+      {
+        "en": "One supply is sufficient; two would be too much.",
+        "ru": "Достаточно одного источника; два дают слишком сильный поток."
+      },
+      {
+        "en": "Either the window latch or the fan can be your control.",
+        "ru": "Можно выбрать защёлку окна или вентилятор."
+      }
+    ],
+    "recap": "Opening the window or switching on the fan creates the same gentle breeze. Both accepted repairs turn the pinwheel without disturbing the cup.",
+    "recapRu": "Открытое окно или включённый вентилятор создают одинаковый мягкий ветерок. Оба верных исправления вращают вертушку, не тревожа чашку."
+  },
+  {
+    "id": "A06",
+    "solutionType": "single",
+    "sources": {
+      "speed": [
+        "slow",
+        "fast"
+      ],
+      "mode": [
+        "duet",
+        "solo"
+      ]
+    },
+    "derived": {
+      "streamer": [
+        "level",
+        "taut"
+      ],
+      "reed": [
+        "chord",
+        "note"
+      ],
+      "drummer": [
+        "soft",
+        "loud"
+      ],
+      "audience": [
+        "listening",
+        "waiting"
+      ]
+    },
+    "initial": {
+      "speed": "fast",
+      "mode": "duet"
+    },
+    "canonical": {
+      "speed": "slow",
+      "mode": "duet"
+    },
+    "rules": {
+      "streamer": "choose(speed == 'slow', 'level', 'taut')",
+      "reed": "choose(mode == 'duet', 'chord', 'note')",
+      "drummer": "choose(streamer == 'level', 'soft', 'loud')",
+      "audience": "choose(reed == 'chord' and drummer == 'soft', 'listening', 'waiting')"
+    },
+    "target": "audience == 'listening'",
+    "solutions": [
+      {
+        "source": "speed",
+        "value": "slow"
+      }
+    ],
+    "title": "The Paper Orchestra",
+    "titleRu": "Бумажный оркестр",
+    "curator": {
+      "en": "The audience asked for a duet, not a marching band.",
+      "ru": "Публика просила дуэт, а не духовой парад."
+    },
+    "objects": {
+      "speed": {
+        "en": "Fan-speed dial",
+        "ru": "Регулятор скорости вентилятора"
+      },
+      "mode": {
+        "en": "Reed selector",
+        "ru": "Переключатель язычков"
+      },
+      "streamer": {
+        "en": "Streamer",
+        "ru": "Лента"
+      },
+      "reed": {
+        "en": "Reed box",
+        "ru": "Коробка язычков"
+      },
+      "drummer": {
+        "en": "Paper drummer",
+        "ru": "Бумажный барабанщик"
+      },
+      "audience": {
+        "en": "Audience card",
+        "ru": "Карточка публики"
+      }
+    },
+    "art": "two reed tabs are visibly paired in duet mode; solo uses one. An audience card leans forward only in the listening state. Chord/note and soft/loud are displayed with live labels and large symbols, so audio-off play is complete.",
+    "ruleCards": [
+      {
+        "en": "Slow air holds the streamer level; fast air pulls it taut.",
+        "ru": "Медленный поток держит ленту горизонтально, быстрый натягивает её."
+      },
+      {
+        "en": "Duet mode selects a chord; solo mode selects one note.",
+        "ru": "Режим дуэта выбирает аккорд, соло — одну ноту."
+      },
+      {
+        "en": "A level streamer makes the drummer soft; a taut streamer makes it loud.",
+        "ru": "Горизонтальная лента задаёт тихую игру барабанщика, натянутая — громкую."
+      },
+      {
+        "en": "The audience listens only to a chord with soft drumming.",
+        "ru": "Публика слушает только аккорд с тихим барабаном."
+      }
+    ],
+    "targetText": "Audience listening.",
+    "targetTextRu": "Публика слушает.",
+    "hints": [
+      {
+        "en": "Separate the melody branch from the volume branch.",
+        "ru": "Разделите ветку мелодии и ветку громкости."
+      },
+      {
+        "en": "The streamer controls the drummer's volume; the reed selector controls the notes separately.",
+        "ru": "Лента управляет громкостью барабанщика; переключатель язычков отдельно управляет нотами."
+      },
+      {
+        "en": "Consider the fan-speed dial.",
+        "ru": "Обратите внимание на регулятор скорости вентилятора."
+      }
+    ],
+    "recap": "Slow fan → level streamer → soft drummer. The duet remains a chord, and the audience begins listening.",
+    "recapRu": "Медленный вентилятор → горизонтальная лента → тихий барабанщик. Дуэт сохраняет аккорд, и публика начинает слушать."
+  },
+  {
+    "id": "A07",
+    "solutionType": "single",
+    "sources": {
+      "pump": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "diverter": [
+        "upper",
+        "lower"
+      ]
+    },
+    "derived": {
+      "gauge": [
+        1,
+        2,
+        3
+      ],
+      "tube": [
+        "upper",
+        "lower"
+      ],
+      "capsule": [
+        "upper",
+        "lower",
+        "lodged"
+      ],
+      "stamp": [
+        "accepted",
+        "blank"
+      ]
+    },
+    "initial": {
+      "pump": "medium",
+      "diverter": "lower"
+    },
+    "canonical": {
+      "pump": "medium",
+      "diverter": "upper"
+    },
+    "rules": {
+      "gauge": "choose(pump == 'low', 1, choose(pump == 'medium', 2, 3))",
+      "tube": "diverter",
+      "capsule": "choose(gauge == 2, tube, 'lodged')",
+      "stamp": "choose(capsule == 'upper', 'accepted', 'blank')"
+    },
+    "target": "gauge == 2 and capsule == 'upper' and stamp == 'accepted'",
+    "solutions": [
+      {
+        "source": "diverter",
+        "value": "upper"
+      }
+    ],
+    "title": "A Parcel for the Upper Shelf",
+    "titleRu": "Посылка на верхнюю полку",
+    "curator": {
+      "en": "The address is upstairs. Enthusiasm alone will not deliver it.",
+      "ru": "Адрес наверху. Одного усердия для доставки мало."
+    },
+    "objects": {
+      "pump": {
+        "en": "Pump dial",
+        "ru": "Регулятор насоса"
+      },
+      "diverter": {
+        "en": "Route diverter",
+        "ru": "Переключатель маршрута"
+      },
+      "gauge": {
+        "en": "Pressure gauge",
+        "ru": "Манометр"
+      },
+      "tube": {
+        "en": "Destination window",
+        "ru": "Окно назначения"
+      },
+      "capsule": {
+        "en": "Postal capsule",
+        "ru": "Почтовая капсула"
+      },
+      "stamp": {
+        "en": "Receipt stamp",
+        "ru": "Штамп квитанции"
+      }
+    },
+    "art": "a pneumatic postal cabinet with large upper/lower route labels. Pressure uses one, two or three embossed bars. A lodged capsule is visibly stationary between guides, not lost or broken.",
+    "ruleCards": [
+      {
+        "en": "Low, medium and high pump settings produce one, two and three pressure marks.",
+        "ru": "Низкий, средний и высокий режимы дают одну, две и три отметки давления."
+      },
+      {
+        "en": "The diverter selects the upper or lower destination window.",
+        "ru": "Переключатель выбирает верхнее или нижнее окно назначения."
+      },
+      {
+        "en": "At exactly two marks the capsule reaches the selected destination; at one or three it lodges.",
+        "ru": "Ровно при двух отметках капсула достигает выбранного места; при одной или трёх застревает."
+      },
+      {
+        "en": "Only an upper-shelf delivery prints the acceptance stamp.",
+        "ru": "Только доставка на верхнюю полку ставит штамп приёмки."
+      }
+    ],
+    "targetText": "Two pressure marks; capsule upper; receipt accepted.",
+    "targetTextRu": "Две отметки давления; капсула наверху; квитанция принята.",
+    "hints": [
+      {
+        "en": "Compare pressure with destination.",
+        "ru": "Сопоставьте давление и назначение."
+      },
+      {
+        "en": "Two marks are already correct; more pressure would lodge the capsule.",
+        "ru": "Две отметки уже верны; большее давление остановит капсулу."
+      },
+      {
+        "en": "Inspect the route diverter.",
+        "ru": "Проверьте переключатель маршрута."
+      }
+    ],
+    "recap": "Upper route plus the existing two pressure marks → upper delivery → acceptance stamp. Increasing power is not the repair.",
+    "recapRu": "Верхний маршрут и уже имеющиеся две отметки давления → доставка наверх → штамп приёмки. Увеличение мощности не является исправлением."
+  },
+  {
+    "id": "A08",
+    "solutionType": "single",
+    "sources": {
+      "fan": [
+        "clockwise",
+        "counterclockwise"
+      ],
+      "clutch": [
+        "engaged",
+        "released"
+      ]
+    },
+    "derived": {
+      "wheel": [
+        "clockwise",
+        "counterclockwise",
+        "stopped"
+      ],
+      "cam": [
+        "aligned",
+        "offset"
+      ],
+      "pen": [
+        "down",
+        "up"
+      ],
+      "scroll": [
+        "signed",
+        "blank"
+      ]
+    },
+    "initial": {
+      "fan": "counterclockwise",
+      "clutch": "engaged"
+    },
+    "canonical": {
+      "fan": "clockwise",
+      "clutch": "engaged"
+    },
+    "rules": {
+      "wheel": "choose(clutch == 'released', 'stopped', fan)",
+      "cam": "choose(wheel == 'clockwise', 'aligned', 'offset')",
+      "pen": "choose(cam == 'aligned', 'down', 'up')",
+      "scroll": "choose(pen == 'down' and wheel == 'clockwise', 'signed', 'blank')"
+    },
+    "target": "scroll == 'signed'",
+    "solutions": [
+      {
+        "source": "fan",
+        "value": "clockwise"
+      }
+    ],
+    "title": "The Wind's Final Signature",
+    "titleRu": "Последняя подпись ветра",
+    "curator": {
+      "en": "The wind has agreed to sign, provided the pen goes the right way.",
+      "ru": "Ветер согласился подписать, если перо пойдёт в нужную сторону."
+    },
+    "objects": {
+      "fan": {
+        "en": "Rotation selector",
+        "ru": "Переключатель вращения"
+      },
+      "clutch": {
+        "en": "Clutch lever",
+        "ru": "Рычаг сцепления"
+      },
+      "wheel": {
+        "en": "Drive wheel",
+        "ru": "Приводное колесо"
+      },
+      "cam": {
+        "en": "Cam marker",
+        "ru": "Метка кулачка"
+      },
+      "pen": {
+        "en": "Signing pen",
+        "ru": "Перо для подписи"
+      },
+      "scroll": {
+        "en": "Visitor scroll",
+        "ru": "Свиток посетителей"
+      }
+    },
+    "art": "a compact air-powered signing automaton. Clockwise/counterclockwise use asymmetric arrow sprites with live labels. The pen's down state is a broad silhouette change. The scroll's signature is an abstract flourish, not generated personal handwriting or a real name.",
+    "ruleCards": [
+      {
+        "en": "An engaged clutch passes the selected rotation; a released clutch stops the wheel.",
+        "ru": "Включённое сцепление передаёт выбранное вращение, отключённое останавливает колесо."
+      },
+      {
+        "en": "Only clockwise rotation aligns the cam.",
+        "ru": "Только вращение по часовой стрелке совмещает кулачок с меткой."
+      },
+      {
+        "en": "An aligned cam lowers the pen; an offset cam raises it.",
+        "ru": "Совмещённый кулачок опускает перо, смещённый поднимает."
+      },
+      {
+        "en": "A lowered pen and clockwise wheel sign the scroll; otherwise it stays blank.",
+        "ru": "Опущенное перо и вращение по часовой стрелке подписывают свиток; иначе он остаётся пустым."
+      }
+    ],
+    "targetText": "Scroll signed.",
+    "targetTextRu": "Свиток подписан.",
+    "hints": [
+      {
+        "en": "Follow wheel → cam → pen.",
+        "ru": "Проследите цепочку: колесо → кулачок → перо."
+      },
+      {
+        "en": "Stopping the wheel does not align the cam.",
+        "ru": "Остановка колеса не совмещает кулачок."
+      },
+      {
+        "en": "Consider the rotation selector.",
+        "ru": "Обратите внимание на переключатель вращения."
+      }
+    ],
+    "recap": "Clockwise rotation passes through the engaged clutch, aligns the cam and lowers the pen. The scroll receives its signature.",
+    "recapRu": "Вращение по часовой стрелке передаётся через включённое сцепление, совмещает кулачок и опускает перо. На свитке появляется подпись."
+  },
+  {
+    "id": "W01",
+    "solutionType": "single",
+    "sources": {
+      "tap": [
+        "open",
+        "closed"
+      ],
+      "drain": [
+        "open",
+        "closed"
+      ]
+    },
+    "derived": {
+      "basin": [
+        "empty",
+        "low",
+        "full"
+      ],
+      "spill": [
+        "flowing",
+        "stopped"
+      ],
+      "floor": [
+        "wet",
+        "dry"
+      ],
+      "duck": [
+        "afloat",
+        "grounded"
+      ]
+    },
+    "initial": {
+      "tap": "open",
+      "drain": "closed"
+    },
+    "canonical": {
+      "tap": "open",
+      "drain": "open"
+    },
+    "rules": {
+      "basin": "choose(tap == 'closed', 'empty', choose(drain == 'open', 'low', 'full'))",
+      "spill": "choose(basin == 'full', 'flowing', 'stopped')",
+      "floor": "choose(spill == 'flowing', 'wet', 'dry')",
+      "duck": "choose(basin == 'empty', 'grounded', 'afloat')"
+    },
+    "target": "floor == 'dry' and duck == 'afloat' and basin == 'low'",
+    "solutions": [
+      {
+        "source": "drain",
+        "value": "open"
+      }
+    ],
+    "title": "A Puddle Outside Its Frame",
+    "titleRu": "Лужа за рамкой",
+    "curator": {
+      "en": "The duck likes the pond. The floor would rather not join it.",
+      "ru": "Утке нравится пруд. Пол предпочёл бы к нему не присоединяться."
+    },
+    "objects": {
+      "tap": {
+        "en": "Tap",
+        "ru": "Кран"
+      },
+      "drain": {
+        "en": "Drain lever",
+        "ru": "Рычаг слива"
+      },
+      "basin": {
+        "en": "Basin",
+        "ru": "Бассейн"
+      },
+      "spill": {
+        "en": "Overflow channel",
+        "ru": "Переливной канал"
+      },
+      "floor": {
+        "en": "Floor tile",
+        "ru": "Плитка пола"
+      },
+      "duck": {
+        "en": "Wooden duck",
+        "ru": "Деревянная утка"
+      }
+    },
+    "art": "a shallow ceramic basin with two large level marks, a visible overflow lip and a separate floor tile. The duck sits on a transparent carrier, with clearly floating/grounded poses. The drain must be visible, not a one-pixel hole.",
+    "ruleCards": [
+      {
+        "en": "In this settled model, a closed tap leaves an empty basin. An open tap gives low water with an open drain, full water with a closed drain.",
+        "ru": "В этой установившейся модели закрытый кран оставляет бассейн пустым. Открытый кран даёт низкий уровень при открытом сливе и полный бассейн при закрытом."
+      },
+      {
+        "en": "Only a full basin sends water into the overflow channel.",
+        "ru": "Только полный бассейн направляет воду в переливной канал."
+      },
+      {
+        "en": "Flowing overflow wets the floor; stopped overflow leaves it dry.",
+        "ru": "Перелив мочит пол; без перелива пол сухой."
+      },
+      {
+        "en": "The duck floats at low or full water and rests on the bottom when empty.",
+        "ru": "Утка плавает при низком и полном уровне, а в пустом бассейне стоит на дне."
+      }
+    ],
+    "targetText": "Dry floor, floating duck, low basin water.",
+    "targetTextRu": "Сухой пол; утка на плаву; низкий уровень в бассейне.",
+    "hints": [
+      {
+        "en": "Read the floor and duck together.",
+        "ru": "Рассмотрите пол и утку вместе."
+      },
+      {
+        "en": "The basin level determines whether the duck floats; an empty basin cannot meet that condition.",
+        "ru": "Уровень бассейна определяет, плавает ли утка; пустой бассейн не выполнит это условие."
+      },
+      {
+        "en": "Consider the drain lever.",
+        "ru": "Обратите внимание на рычаг слива."
+      }
+    ],
+    "recap": "Open drain → low water → no overflow → dry floor, while the duck still floats. Closing the tap would remove the water the target needs.",
+    "recapRu": "Открытый слив → низкий уровень → нет перелива → сухой пол, а утка остаётся на плаву. Закрытый кран убрал бы воду, нужную по условию."
+  },
+  {
+    "id": "W02",
+    "solutionType": "single",
+    "sources": {
+      "pump": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "hood": [
+        "centered",
+        "aside"
+      ]
+    },
+    "derived": {
+      "jet": [
+        "short",
+        "neat",
+        "tall"
+      ],
+      "canopy": [
+        "catching",
+        "missing"
+      ],
+      "gutter": [
+        "flowing",
+        "stopped"
+      ],
+      "postcard": [
+        "dry",
+        "wet"
+      ]
+    },
+    "initial": {
+      "pump": "high",
+      "hood": "centered"
+    },
+    "canonical": {
+      "pump": "medium",
+      "hood": "centered"
+    },
+    "rules": {
+      "jet": "choose(pump == 'low', 'short', choose(pump == 'medium', 'neat', 'tall'))",
+      "canopy": "choose(hood == 'centered' and jet == 'neat', 'catching', 'missing')",
+      "gutter": "choose(canopy == 'catching' and jet == 'neat', 'flowing', 'stopped')",
+      "postcard": "choose(canopy == 'catching', 'dry', 'wet')"
+    },
+    "target": "gutter == 'flowing' and postcard == 'dry'",
+    "solutions": [
+      {
+        "source": "pump",
+        "value": "medium"
+      }
+    ],
+    "title": "The Fountain's Indoor Umbrella",
+    "titleRu": "Домашний зонтик фонтана",
+    "curator": {
+      "en": "The fountain is practicing restraint.",
+      "ru": "Фонтан упражняется в сдержанности."
+    },
+    "objects": {
+      "pump": {
+        "en": "Pump dial",
+        "ru": "Регулятор насоса"
+      },
+      "hood": {
+        "en": "Catching hood",
+        "ru": "Улавливающий колпак"
+      },
+      "jet": {
+        "en": "Fountain jet",
+        "ru": "Струя фонтана"
+      },
+      "canopy": {
+        "en": "Catch sensor",
+        "ru": "Датчик улавливания"
+      },
+      "gutter": {
+        "en": "Return gutter",
+        "ru": "Возвратный желоб"
+      },
+      "postcard": {
+        "en": "Visitor postcard",
+        "ru": "Открытка посетителя"
+      }
+    },
+    "art": "a toy fountain with three discrete arch heights. The hood and its catch sensor are separate semantic objects with separate large bounds. A short jet falls before the hood; a tall jet overshoots it; only the neat middle arc enters the hood. An exposed splash tray explains the postcard's modeled wet state for uncaught arcs.",
+    "ruleCards": [
+      {
+        "en": "Low, medium and high pump settings make a short, neat and tall arc.",
+        "ru": "Низкий, средний и высокий режимы дают короткую, аккуратную и высокую дугу."
+      },
+      {
+        "en": "The centered hood catches only the neat arc; all other combinations miss.",
+        "ru": "Колпак по центру ловит только аккуратную дугу; при остальных сочетаниях струя проходит мимо."
+      },
+      {
+        "en": "The gutter flows only when the neat arc is caught.",
+        "ru": "Желоб наполняется только при пойманной аккуратной дуге."
+      },
+      {
+        "en": "In this splash model the postcard is dry when the hood catches the water; otherwise it is wet.",
+        "ru": "В этой модели брызг открытка сухая, когда колпак ловит воду; иначе она мокрая."
+      }
+    ],
+    "targetText": "Flowing return gutter and dry postcard.",
+    "targetTextRu": "Вода идёт по возвратному желобу; открытка сухая.",
+    "hints": [
+      {
+        "en": "Follow the jet through the hood to the gutter.",
+        "ru": "Проследите путь струи через колпак к желобу."
+      },
+      {
+        "en": "Only the middle arc reaches the hood correctly.",
+        "ru": "Только средняя дуга правильно попадает в колпак."
+      },
+      {
+        "en": "Consider the pump dial.",
+        "ru": "Обратите внимание на регулятор насоса."
+      }
+    ],
+    "recap": "Medium pump → neat arc → centered hood catches it → gutter flows and postcard stays dry.",
+    "recapRu": "Средний режим → аккуратная дуга → колпак по центру ловит воду → желоб работает, открытка сухая."
+  },
+  {
+    "id": "W03",
+    "solutionType": "single",
+    "sources": {
+      "gate": [
+        "left",
+        "right"
+      ],
+      "supply": [
+        "off",
+        "on"
+      ]
+    },
+    "derived": {
+      "channel": [
+        "dry",
+        "left",
+        "right"
+      ],
+      "leftLock": [
+        "empty",
+        "full"
+      ],
+      "rightLock": [
+        "empty",
+        "full"
+      ],
+      "ferry": [
+        "docked",
+        "waiting"
+      ]
+    },
+    "initial": {
+      "gate": "left",
+      "supply": "on"
+    },
+    "canonical": {
+      "gate": "right",
+      "supply": "on"
+    },
+    "rules": {
+      "channel": "choose(supply == 'off', 'dry', gate)",
+      "leftLock": "choose(channel == 'left', 'full', 'empty')",
+      "rightLock": "choose(channel == 'right', 'full', 'empty')",
+      "ferry": "choose(rightLock == 'full' and leftLock == 'empty', 'docked', 'waiting')"
+    },
+    "target": "ferry == 'docked'",
+    "solutions": [
+      {
+        "source": "gate",
+        "value": "right"
+      }
+    ],
+    "title": "The Canal Chooses a Visitor",
+    "titleRu": "Канал выбирает посетителя",
+    "curator": {
+      "en": "The ferry has arrived somewhere. That is not quite the same thing.",
+      "ru": "Паром куда-то прибыл. Но это ещё не совсем то."
+    },
+    "objects": {
+      "gate": {
+        "en": "Canal gate",
+        "ru": "Заслонка канала"
+      },
+      "supply": {
+        "en": "Supply switch",
+        "ru": "Выключатель подачи"
+      },
+      "channel": {
+        "en": "Channel window",
+        "ru": "Окно канала"
+      },
+      "leftLock": {
+        "en": "Left lock",
+        "ru": "Левый шлюз"
+      },
+      "rightLock": {
+        "en": "Right lock",
+        "ru": "Правый шлюз"
+      },
+      "ferry": {
+        "en": "Ferry",
+        "ru": "Паром"
+      }
+    },
+    "art": "a forked ceramic canal, two visibly separate lock chambers and a ferry carriage at the right dock. The dry branch is drawn as a distinct empty channel, not an invisible path. Direction is fixed relative to the scene.",
+    "ruleCards": [
+      {
+        "en": "Supply on sends water to the selected side; supply off leaves the channel dry.",
+        "ru": "Включённая подача направляет воду в выбранную сторону; выключенная оставляет канал сухим."
+      },
+      {
+        "en": "Only a leftward channel fills the left lock.",
+        "ru": "Только левый маршрут наполняет левый шлюз."
+      },
+      {
+        "en": "Only a rightward channel fills the right lock.",
+        "ru": "Только правый маршрут наполняет правый шлюз."
+      },
+      {
+        "en": "The ferry docks only with a full right lock and empty left lock.",
+        "ru": "Паром причаливает только при полном правом и пустом левом шлюзе."
+      }
+    ],
+    "targetText": "Ferry docked.",
+    "targetTextRu": "Паром у причала.",
+    "hints": [
+      {
+        "en": "The ferry depends on both locks.",
+        "ru": "Паром зависит от обоих шлюзов."
+      },
+      {
+        "en": "The channel route fills one lock and leaves the other empty.",
+        "ru": "Маршрут канала наполняет один шлюз и оставляет другой пустым."
+      },
+      {
+        "en": "Inspect the canal gate.",
+        "ru": "Проверьте заслонку канала."
+      }
+    ],
+    "recap": "Gate right → right lock full and left lock empty → ferry docked. Cutting supply would empty both locks.",
+    "recapRu": "Заслонка вправо → правый шлюз полный, левый пустой → паром у причала. Отключение подачи опустошило бы оба шлюза."
+  },
+  {
+    "id": "W04",
+    "solutionType": "single",
+    "sources": {
+      "heater": [
+        "cool",
+        "warm"
+      ],
+      "lid": [
+        "open",
+        "closed"
+      ]
+    },
+    "derived": {
+      "vapor": [
+        "absent",
+        "present"
+      ],
+      "ceiling": [
+        "clear",
+        "misted"
+      ],
+      "dropper": [
+        "stopped",
+        "dropping"
+      ],
+      "garden": [
+        "dry",
+        "watered"
+      ]
+    },
+    "initial": {
+      "heater": "cool",
+      "lid": "closed"
+    },
+    "canonical": {
+      "heater": "warm",
+      "lid": "closed"
+    },
+    "rules": {
+      "vapor": "choose(heater == 'warm', 'present', 'absent')",
+      "ceiling": "choose(vapor == 'present' and lid == 'closed', 'misted', 'clear')",
+      "dropper": "choose(ceiling == 'misted', 'dropping', 'stopped')",
+      "garden": "choose(dropper == 'dropping', 'watered', 'dry')"
+    },
+    "target": "garden == 'watered'",
+    "solutions": [
+      {
+        "source": "heater",
+        "value": "warm"
+      }
+    ],
+    "title": "The Cloud with a Return Address",
+    "titleRu": "Облако с обратным адресом",
+    "curator": {
+      "en": "This cloud sends all its rain home.",
+      "ru": "Это облако отправляет весь дождь домой."
+    },
+    "objects": {
+      "heater": {
+        "en": "Heater selector",
+        "ru": "Переключатель нагревателя"
+      },
+      "lid": {
+        "en": "Lid latch",
+        "ru": "Защёлка крышки"
+      },
+      "vapor": {
+        "en": "Vapor window",
+        "ru": "Окно пара"
+      },
+      "ceiling": {
+        "en": "Condensation panel",
+        "ru": "Панель конденсации"
+      },
+      "dropper": {
+        "en": "Dropper",
+        "ru": "Капельник"
+      },
+      "garden": {
+        "en": "Paper garden",
+        "ru": "Бумажный сад"
+      }
+    },
+    "art": "a sealed tabletop weather cabinet, obvious lid seam, large misted/clear panel and a broad droplet position. This is an illustrated instantaneous model of a toy water cycle, not real heat transfer; no waiting for evaporation and no simulated temperature gauge.",
+    "ruleCards": [
+      {
+        "en": "Warm produces vapor in the window; cool produces none.",
+        "ru": "Тёплый режим создаёт пар в окне, прохладный — нет."
+      },
+      {
+        "en": "Vapor mists the ceiling only with the lid closed.",
+        "ru": "Пар покрывает потолок конденсатом только при закрытой крышке."
+      },
+      {
+        "en": "A misted ceiling makes the dropper drip; a clear ceiling stops it.",
+        "ru": "Конденсат на потолке запускает капельник; чистый потолок останавливает его."
+      },
+      {
+        "en": "A dripping dropper waters the garden; otherwise it stays dry.",
+        "ru": "Работающий капельник поливает сад; иначе сад сухой."
+      }
+    ],
+    "targetText": "Garden watered.",
+    "targetTextRu": "Сад полит.",
+    "hints": [
+      {
+        "en": "Trace the garden's water back to the vapor window.",
+        "ru": "Проследите воду сада назад к окну пара."
+      },
+      {
+        "en": "The lid already keeps vapor inside, but no vapor is being made.",
+        "ru": "Крышка уже удерживает пар внутри, но пар пока не образуется."
+      },
+      {
+        "en": "Consider the heater selector.",
+        "ru": "Обратите внимание на переключатель нагревателя."
+      }
+    ],
+    "recap": "Warm heater → vapor → condensation under the closed lid → drops → watered garden. The scene updates as a settled model, not after a real-time wait.",
+    "recapRu": "Тёплый нагреватель → пар → конденсат под закрытой крышкой → капли → политый сад. Сцена обновляется как установившаяся модель, без ожидания в реальном времени."
+  },
+  {
+    "id": "W05",
+    "solutionType": "single",
+    "sources": {
+      "splitter": [
+        "left",
+        "balanced",
+        "right"
+      ],
+      "tap": [
+        "off",
+        "on"
+      ]
+    },
+    "derived": {
+      "leftCup": [
+        "empty",
+        "full"
+      ],
+      "rightCup": [
+        "empty",
+        "full"
+      ],
+      "scale": [
+        "level",
+        "tilted"
+      ],
+      "bridge": [
+        "lowered",
+        "raised"
+      ]
+    },
+    "initial": {
+      "splitter": "left",
+      "tap": "on"
+    },
+    "canonical": {
+      "splitter": "balanced",
+      "tap": "on"
+    },
+    "rules": {
+      "leftCup": "choose(tap == 'on' and splitter != 'right', 'full', 'empty')",
+      "rightCup": "choose(tap == 'on' and splitter != 'left', 'full', 'empty')",
+      "scale": "choose(leftCup == rightCup, 'level', 'tilted')",
+      "bridge": "choose(scale == 'level' and leftCup == 'full', 'lowered', 'raised')"
+    },
+    "target": "leftCup == 'full' and rightCup == 'full' and bridge == 'lowered'",
+    "solutions": [
+      {
+        "source": "splitter",
+        "value": "balanced"
+      }
+    ],
+    "title": "Two Cups, One Promise",
+    "titleRu": "Две чаши, одно обещание",
+    "curator": {
+      "en": "The bridge requires balance, and something worth balancing.",
+      "ru": "Мосту нужно равновесие — и то, что стоит уравновешивать."
+    },
+    "objects": {
+      "splitter": {
+        "en": "Splitter dial",
+        "ru": "Регулятор распределителя"
+      },
+      "tap": {
+        "en": "Supply tap",
+        "ru": "Кран подачи"
+      },
+      "leftCup": {
+        "en": "Left cup",
+        "ru": "Левая чаша"
+      },
+      "rightCup": {
+        "en": "Right cup",
+        "ru": "Правая чаша"
+      },
+      "scale": {
+        "en": "Balance beam",
+        "ru": "Коромысло весов"
+      },
+      "bridge": {
+        "en": "Footbridge",
+        "ru": "Мостик"
+      }
+    },
+    "art": "twin ceramic cups on a visible beam, with an independent small bridge connected to its latch. Both empty cups are clearly level but cannot lower the bridge. This visual distinction prevents the equality condition from feeling arbitrary.",
+    "ruleCards": [
+      {
+        "en": "With supply on, left or balanced routing fills the left cup; otherwise it is empty.",
+        "ru": "При включённой подаче левый или равномерный маршрут наполняет левую чашу; иначе она пуста."
+      },
+      {
+        "en": "With supply on, right or balanced routing fills the right cup; otherwise it is empty.",
+        "ru": "При включённой подаче правый или равномерный маршрут наполняет правую чашу; иначе она пуста."
+      },
+      {
+        "en": "Matching cup states make the beam level; differing states tilt it.",
+        "ru": "Одинаковые состояния чаш уравновешивают коромысло, разные наклоняют его."
+      },
+      {
+        "en": "The bridge lowers only with a level beam and a full left cup; otherwise it stays raised.",
+        "ru": "Мост опускается только при ровном коромысле и полной левой чаше; иначе он поднят."
+      }
+    ],
+    "targetText": "Both cups full and bridge lowered.",
+    "targetTextRu": "Обе чаши полны; мост опущен.",
+    "hints": [
+      {
+        "en": "Compare both cups with the bridge latch.",
+        "ru": "Сопоставьте обе чаши с защёлкой моста."
+      },
+      {
+        "en": "The bridge reads both the beam's balance and the left cup's fill; two empty cups are not enough.",
+        "ru": "Мост зависит и от равновесия коромысла, и от наполнения левой чаши; двух пустых чаш недостаточно."
+      },
+      {
+        "en": "Consider the splitter dial.",
+        "ru": "Обратите внимание на регулятор распределителя."
+      }
+    ],
+    "recap": "Balanced routing fills both cups → level beam with water present → lowered bridge. Turning supply off would create the wrong kind of balance.",
+    "recapRu": "Равномерный маршрут наполняет обе чаши → ровное коромысло при наличии воды → опущенный мост. Отключение подачи создаёт неподходящее равновесие."
+  },
+  {
+    "id": "W06",
+    "solutionType": "open",
+    "sources": {
+      "tap": [
+        "open",
+        "closed"
+      ],
+      "drain": [
+        "open",
+        "closed"
+      ]
+    },
+    "derived": {
+      "inflow": [
+        "flowing",
+        "stopped"
+      ],
+      "outflow": [
+        "flowing",
+        "stopped"
+      ],
+      "level": [
+        "safe",
+        "high"
+      ],
+      "letter": [
+        "dry",
+        "wet"
+      ]
+    },
+    "initial": {
+      "tap": "open",
+      "drain": "closed"
+    },
+    "canonical": {
+      "tap": "closed",
+      "drain": "closed"
+    },
+    "rules": {
+      "inflow": "choose(tap == 'open', 'flowing', 'stopped')",
+      "outflow": "choose(drain == 'open', 'flowing', 'stopped')",
+      "level": "choose(inflow == 'stopped' or outflow == 'flowing', 'safe', 'high')",
+      "letter": "choose(level == 'safe', 'dry', 'wet')"
+    },
+    "target": "level == 'safe' and letter == 'dry'",
+    "solutions": [
+      {
+        "source": "tap",
+        "value": "closed"
+      },
+      {
+        "source": "drain",
+        "value": "open"
+      }
+    ],
+    "title": "Two Ways to Keep a Letter Dry",
+    "titleRu": "Два способа сохранить письмо сухим",
+    "curator": {
+      "en": "The letter does not mind how you help, only that the ink survives.",
+      "ru": "Письму неважно, как вы поможете, лишь бы сохранились чернила."
+    },
+    "objects": {
+      "tap": {
+        "en": "Inlet tap",
+        "ru": "Впускной кран"
+      },
+      "drain": {
+        "en": "Outlet gate",
+        "ru": "Выпускная заслонка"
+      },
+      "inflow": {
+        "en": "Inflow window",
+        "ru": "Окно притока"
+      },
+      "outflow": {
+        "en": "Outflow window",
+        "ru": "Окно оттока"
+      },
+      "level": {
+        "en": "Reservoir gauge",
+        "ru": "Указатель уровня резервуара"
+      },
+      "letter": {
+        "en": "Letter tray",
+        "ru": "Лоток с письмом"
+      }
+    },
+    "art": "a recirculating, prefilled reservoir with a clearly marked safe band and overflow band. This model retains stored water and has only safe/high levels; unlike W01, “no inflow” does not mean an empty basin. Print this difference on rule 3, not in hidden lore.",
+    "ruleCards": [
+      {
+        "en": "The open inlet tap makes inflow; the closed tap stops it.",
+        "ru": "Открытый впускной кран создаёт приток, закрытый останавливает его."
+      },
+      {
+        "en": "The open outlet gate makes outflow; the closed gate stops it.",
+        "ru": "Открытая выпускная заслонка создаёт отток, закрытая останавливает его."
+      },
+      {
+        "en": "This prefilled model is safe if inflow stops or outflow runs. Only inflow without outflow makes a high level; stored water does not disappear.",
+        "ru": "В этой предварительно наполненной модели уровень безопасен, если приток остановлен или отток работает. Только приток без оттока поднимает уровень; запасённая вода не исчезает."
+      },
+      {
+        "en": "Safe water keeps the letter dry; high water wets it.",
+        "ru": "Безопасный уровень сохраняет письмо сухим, высокий мочит его."
+      }
+    ],
+    "targetText": "Safe level and dry letter.",
+    "targetTextRu": "Безопасный уровень; сухое письмо.",
+    "hints": [
+      {
+        "en": "Compare what enters with what leaves.",
+        "ru": "Сопоставьте то, что поступает, и то, что уходит."
+      },
+      {
+        "en": "Either stopping inflow or enabling outflow can satisfy the safe-level rule.",
+        "ru": "Правило безопасного уровня допускает остановку притока или запуск оттока."
+      },
+      {
+        "en": "The inlet tap and outlet gate are both valid control candidates.",
+        "ru": "Впускной кран и выпускная заслонка — оба подходящие переключатели."
+      }
+    ],
+    "recap": "Close the inlet, or open the outlet. Each single change makes the reservoir safe and keeps the letter dry; neither is the preferred answer.",
+    "recapRu": "Закройте впуск или откройте выпуск. Каждое одиночное изменение делает уровень безопасным и сохраняет письмо сухим; предпочтительного ответа нет."
+  },
+  {
+    "id": "W07",
+    "solutionType": "single",
+    "sources": {
+      "water": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "sluice": [
+        "toward",
+        "away"
+      ]
+    },
+    "derived": {
+      "gauge": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "channel": [
+        "toward",
+        "away"
+      ],
+      "float": [
+        "resting",
+        "step",
+        "submerged"
+      ],
+      "visitor": [
+        "across",
+        "waiting"
+      ]
+    },
+    "initial": {
+      "water": "high",
+      "sluice": "toward"
+    },
+    "canonical": {
+      "water": "mid",
+      "sluice": "toward"
+    },
+    "rules": {
+      "gauge": "water",
+      "channel": "sluice",
+      "float": "choose(gauge == 'low', 'resting', choose(gauge == 'mid', 'step', 'submerged'))",
+      "visitor": "choose(float == 'step' and channel == 'toward', 'across', 'waiting')"
+    },
+    "target": "gauge == 'mid' and visitor == 'across'",
+    "solutions": [
+      {
+        "source": "water",
+        "value": "mid"
+      }
+    ],
+    "title": "The Island's Borrowed Stair",
+    "titleRu": "Одолженная ступенька острова",
+    "curator": {
+      "en": "The island has borrowed a stair from the water.",
+      "ru": "Остров одолжил у воды ступеньку."
+    },
+    "objects": {
+      "water": {
+        "en": "Level selector",
+        "ru": "Переключатель уровня"
+      },
+      "sluice": {
+        "en": "Channel lever",
+        "ru": "Рычаг канала"
+      },
+      "gauge": {
+        "en": "Level gauge",
+        "ru": "Шкала уровня"
+      },
+      "channel": {
+        "en": "Direction vane",
+        "ru": "Указатель направления"
+      },
+      "float": {
+        "en": "Floating step",
+        "ru": "Плавающая ступенька"
+      },
+      "visitor": {
+        "en": "Paper visitor",
+        "ru": "Бумажный посетитель"
+      }
+    },
+    "art": "a small island and a large rectangular floating step with three obvious vertical poses. The source selects a model level, not a timer or a pump that must be held. A guide vane shows toward/away through a stable arrow and label.",
+    "ruleCards": [
+      {
+        "en": "The level gauge repeats the selected low, middle or high setting.",
+        "ru": "Шкала повторяет выбранный низкий, средний или высокий уровень."
+      },
+      {
+        "en": "The channel vane repeats toward-island or away-from-island routing.",
+        "ru": "Указатель канала повторяет маршрут к острову или от острова."
+      },
+      {
+        "en": "Low water leaves the float resting; middle water makes a step; high water submerges its platform in this guided model.",
+        "ru": "Низкая вода оставляет поплавок внизу, средняя создаёт ступеньку, высокая в этой модели с направляющими погружает площадку."
+      },
+      {
+        "en": "The visitor crosses only with a usable step and a channel toward the island.",
+        "ru": "Посетитель переходит только при доступной ступеньке и канале к острову."
+      }
+    ],
+    "targetText": "Middle level and visitor across.",
+    "targetTextRu": "Средний уровень; посетитель перешёл на остров.",
+    "hints": [
+      {
+        "en": "Read the level gauge before changing the channel.",
+        "ru": "Прочитайте шкалу уровня перед изменением канала."
+      },
+      {
+        "en": "The gauge sets the float's height; the visitor needs that float to become a usable step.",
+        "ru": "Шкала задаёт высоту поплавка; посетителю нужно, чтобы поплавок стал доступной ступенькой."
+      },
+      {
+        "en": "Consider the level selector.",
+        "ru": "Обратите внимание на переключатель уровня."
+      }
+    ],
+    "recap": "Middle level → usable floating step. The preserved islandward channel lets the visitor cross. Lower is not automatically better.",
+    "recapRu": "Средний уровень → доступная плавающая ступенька. Сохранённый маршрут к острову позволяет перейти. Ниже — не обязательно лучше."
+  },
+  {
+    "id": "W08",
+    "solutionType": "single",
+    "sources": {
+      "valve": [
+        "open",
+        "closed"
+      ],
+      "route": [
+        "wheel",
+        "bypass"
+      ]
+    },
+    "derived": {
+      "wheel": [
+        "turning",
+        "stopped"
+      ],
+      "bellows": [
+        "steady",
+        "still"
+      ],
+      "lamp": [
+        "lit",
+        "dark"
+      ],
+      "guestbook": [
+        "signed",
+        "blank"
+      ]
+    },
+    "initial": {
+      "valve": "open",
+      "route": "bypass"
+    },
+    "canonical": {
+      "valve": "open",
+      "route": "wheel"
+    },
+    "rules": {
+      "wheel": "choose(valve == 'open' and route == 'wheel', 'turning', 'stopped')",
+      "bellows": "choose(wheel == 'turning', 'steady', 'still')",
+      "lamp": "choose(bellows == 'steady', 'lit', 'dark')",
+      "guestbook": "choose(lamp == 'lit' and wheel == 'turning', 'signed', 'blank')"
+    },
+    "target": "lamp == 'lit' and guestbook == 'signed'",
+    "solutions": [
+      {
+        "source": "route",
+        "value": "wheel"
+      }
+    ],
+    "title": "Everything, in Its Own Time",
+    "titleRu": "Всё на своём месте",
+    "curator": {
+      "en": "One small river has offered to close the museum.",
+      "ru": "Одна маленькая река вызвалась закрыть музей."
+    },
+    "objects": {
+      "valve": {
+        "en": "Supply valve",
+        "ru": "Подающий клапан"
+      },
+      "route": {
+        "en": "Water-route lever",
+        "ru": "Рычаг водного маршрута"
+      },
+      "wheel": {
+        "en": "Waterwheel",
+        "ru": "Водяное колесо"
+      },
+      "bellows": {
+        "en": "Bellows",
+        "ru": "Меха"
+      },
+      "lamp": {
+        "en": "Closing lamp",
+        "ru": "Лампа закрытия"
+      },
+      "guestbook": {
+        "en": "Guestbook",
+        "ru": "Гостевая книга"
+      }
+    },
+    "art": "the final exhibit combines ceramic channel, linen bellows and gold lamp on one cabinet. A visible toy linkage drives the bellows from the wheel and the lamp switch from the bellows; no implication of impossible real electricity generation. A paper guestbook receives an abstract museum seal. Its press is decorative machinery inside the guestbook's single composite sprite/hit region, not a seventh object or another control. Do not add extra interactive finale controls.",
+    "ruleCards": [
+      {
+        "en": "An open valve and wheel route turn the waterwheel; a closed valve or bypass stops it.",
+        "ru": "Открытый клапан и маршрут через колесо вращают его; закрытый клапан или обход останавливают."
+      },
+      {
+        "en": "A turning wheel drives the bellows steadily; a stopped wheel leaves them still.",
+        "ru": "Вращающееся колесо приводит меха в равномерное движение; остановленное оставляет их неподвижными."
+      },
+      {
+        "en": "Steady bellows press the toy lamp switch on; still bellows leave the lamp dark.",
+        "ru": "Равномерно движущиеся меха нажимают игрушечный выключатель лампы; неподвижные оставляют её тёмной."
+      },
+      {
+        "en": "The press signs the guestbook only with a lit lamp and turning wheel.",
+        "ru": "Пресс подписывает гостевую книгу только при горящей лампе и вращающемся колесе."
+      }
+    ],
+    "targetText": "Closing lamp lit and guestbook signed.",
+    "targetTextRu": "Лампа закрытия горит; гостевая книга подписана.",
+    "hints": [
+      {
+        "en": "Follow the waterwheel through air to light.",
+        "ru": "Проследите путь от водяного колеса через воздух к свету."
+      },
+      {
+        "en": "The valve already supplies water, but the route avoids the wheel.",
+        "ru": "Клапан уже подаёт воду, но маршрут обходит колесо."
+      },
+      {
+        "en": "Inspect the water-route lever.",
+        "ru": "Проверьте рычаг водного маршрута."
+      }
+    ],
+    "recap": "Wheel route → turning waterwheel → steady bellows → lit lamp → signed guestbook. One change lets water, air and light agree.",
+    "recapRu": "Маршрут через колесо → вращение колеса → равномерное движение мехов → горящая лампа → подписанная книга. Одно изменение согласует воду, воздух и свет."
+  }
+]
